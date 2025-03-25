@@ -16,18 +16,23 @@ img,a  {
   user-select: none;
 }
 
+button{
+  cursor: pointer;
+}
+
 /*Start Page css*/
 #screen_Border {
   height: 100vh;
   width: 100vw;
   display: flex;
   z-index: 0;
-  position: absolute;
+  position: fixed;
   margin: 0;
+  flex-direction: column;
 }
 /*container for mac os screen*/
-#screen_Border img{
-  position: relative;
+#wallpaper{
+  position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%,-50%);
@@ -37,11 +42,11 @@ img,a  {
 
 /*Header bar container*/
 header{
-  position: absolute;
+  position: relative;
   top: 0;
   left: 0;
   width: 100%;
-  height: auto;
+  height: 2.3rem;
   z-index: 1;
   background-image: linear-gradient(rgba(255, 255, 255), rgb(225, 225, 225) , rgb(125, 125, 125,0.90));
   box-shadow: 0px 2px 20px black;
@@ -49,6 +54,7 @@ header{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+
 }
 
 /*header buttons*/
@@ -58,7 +64,6 @@ header button{
   margin: 0;
   height: 100%;
 }
-
 
 header button:hover{
   background-image: linear-gradient(rgb(133, 196, 248), rgb(56, 133, 235), rgb(5, 53, 155));
@@ -79,28 +84,32 @@ header li{
   list-style-type: none;
   font-family: sf;
   font-size: 1.4rem;
-  margin: 0 0.7rem;
+  margin: 3px 0.7rem;
   font-weight: 100; 
   letter-spacing: 0.2px;
+ text-wrap: nowrap;
 }
 
 /*Footer container*/
 footer{
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translate(-50%, 0);
+  position: relative;
   z-index: 1;
   display: flex;
+  justify-content: center;
+  margin-top: auto;
+}
+.main-content {
+  flex: 1; /* Pushes footer to the bottom */
 }
 
 /*Task bar*/
 #taskbar{
-  width: 100%;
+  width: auto;
   height: 5rem;
   display: flex;
   justify-content: center; 
   align-items: flex-end; 
+  position: relative;
 }
 
 /*Task bar ul holding all li icons*/
@@ -121,15 +130,14 @@ footer{
 #taskbar li{
   list-style-type: none;
   display: flex;
-  padding: 0;
+  padding:  5px 0 0 0;
   position: relative; 
 }
 
 /*Task bar app icons buttons*/
 #taskbar button{
-  height: 79px;
   margin: 0;
-  padding: 1px 6px 0px 6px;
+  padding: 0px 6px;
   border: none;
   display: flex;
   background-color: transparent;
@@ -142,7 +150,7 @@ footer{
   width: 4rem;
   height: 4rem;
   position: relative;
-  top: 2.3rem;
+
 }
 
 /*Active button that shows when app is clicked*/
@@ -155,12 +163,13 @@ footer{
   border-left: 6px solid transparent;
   border-right: 6px solid transparent;
   border-bottom: 7px solid black;
-  margin-top: 8px;
+  margin-top: 2%;
   background-color: transparent;
   transition: opacity 0.3s;
   outline: none;
 }
 
+/*Names of icons for taskbar*/
 #icon_name{
  color: white;
  text-shadow: 1.5px 1.5px 1px black; 
@@ -174,15 +183,24 @@ footer{
 
 @keyframes active{
   0% {
-    top: 2.3rem;
+    top: 0rem;
   }50%{
-    top: 0.8rem;
+    top: -1.4rem;
   }100%{
-   top: 2.3rem;
+   top: 0rem;
   }
 }
 
 .active{
-  animation: active 0.9s ease-in-out;
+  animation: active 1s ease-in-out;
   position: relative;
+}
+
+#option_box{
+  width: 5rem;
+  height: 10rem;
+  background-color: white;
+  position: relative;
+  display: flex;
+  z-index: 2;
 }

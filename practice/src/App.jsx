@@ -13,12 +13,6 @@ const [hide, setHide] = useState([true, true]);
     return newArr;
   });
 }
-
-
-
-
-
-  
   return (
     <>
     <Main/>

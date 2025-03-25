@@ -26,7 +26,7 @@ function Header(){
     return(
         <header>
             <ul id='header_left'>
-                <li><img src="./public/assets/star.png" alt="" style={{width:"2rem", transform: "translate(-1rem,0.2rem)", filter: "invert(1)"}}/></li>
+                <li><img src="./public/assets/star.png" alt="" style={{width:"1.5rem", transform: "translatey(2px)",filter: "brightness(0)"}}/></li>
                 <button type='button'><li style={{fontWeight : 900}}>Joseph Kim</li></button>
                 <button type='button'><li>File</li></button>
                 <button type='button'><li>Edit</li></button>

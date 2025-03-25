@@ -25,9 +25,9 @@ function Taskbar(){
         });
     }
  
+    //handle taskbar ui and function
     async function handleClick(i) { 
             app[i].active = "yes";
-            console.log(imgRef.current[i])
 
             if (imgRef.current[i]) {
                 imgRef.current[i].classList.add('active');
