@@ -5,17 +5,7 @@ function OptionBox(props){
     
     const [currentArr, setCurrentArr] = useState(main);
     const boxRef = useRef(null);
-    const [opacity, setOpacity] = useState(Array(10).fill(0));
-    const [active, setActive] = useState(Array(6).fill(null))
-
-    //function for changing the opacity for active buttons
-    function updateOpacity(index) {
-        setOpacity((prevOpacity) => {
-          const newArr = Array(prevOpacity.length).fill(0); 
-          if (index !== null) newArr[index] = 1; 
-          return newArr;
-        });
-      }
+ 
 
     //switch statement to change option box buttons
     //the active[0] finds what the saved button presses were so when you go to the next box and come back your options are saved
@@ -24,35 +14,35 @@ function OptionBox(props){
         switch (props.header) {
           case "main":
             setCurrentArr(main);
-            i = active[0];
+            i = props.active[0];
             break;
           case "file":
             setCurrentArr(file);
-            i = active[1];
+            i = props.active[1];
             break;
           case "edit":
             setCurrentArr(edit);
-            i = active[2];
+            i = props.active[2];
             break;
           case "project":
             setCurrentArr(project);
-            i = active[3];
+            i = props.active[3];
             break;
           case "about":
             setCurrentArr(about);
-            i = active[4];
+            i = props.active[4];
             break;
           case "wallpaper":
             setCurrentArr(wallpaper);
-            i = active[5];
+            i = props.active[5];
             break;
           case "help":
             setCurrentArr(help);
-            i = active[6];
+            i = props.active[6];
             break;
           default:
         }
-        updateOpacity(i);
+        props.updateOpacity(i);
       
       }, [props.header]);
 
@@ -107,14 +97,13 @@ function OptionBox(props){
                 i = index;
         }
         //this stores what index and buttonw as pressed
-        setActive((prev) =>{
+        props.setActive((prev) =>{
             const newArr = [...prev];
             newArr[x] = i;
             return newArr;
         }) 
-        updateOpacity(i);
+        props.updateOpacity(i);
     }
-
 
 return(
     <>
@@ -122,7 +111,7 @@ return(
         <ul>
        {currentArr.map((element, i) => (
                 <button key={i} onClick={() => handleClick(i)}>
-                    <p style={{opacity : opacity[i]}}><i class="fa-solid fa-check"></i></p>
+                    <p style={{opacity : props.opacity[i]}}><i className="fa-solid fa-check"></i></p>
                     <h1>{element.name}</h1>
                 </button>      
        ))}

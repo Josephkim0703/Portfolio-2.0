@@ -98,7 +98,7 @@ const wallpaper = [
     },
     {   
         name : "Frutiger Aero",
-        img : "./public/assets/wallpaper/Frutigeraero.jpg"
+        img : "./public/assets/wallpaper/frutiger.png"
     },
     {   
         name : "Windows XP",
