@@ -27,6 +27,84 @@ const TaskBarApps = [
     }
 ];
 
+const main = [
+    {
+        name : "Instagram",
+    },
+    {
+        name : "Github",
+    },
+    {
+        name : "Linkdin",
+    },
+]
 
 
-export{TaskBarApps, }
+const file = [
+    {
+        name : "Photos",
+    },
+    {
+        name : "Documents",
+    },
+    {
+        name : "Videos",
+    },
+]
+
+
+const edit = [
+    {
+        name : "Dark mode",
+    },
+]
+
+
+const view = [
+    {
+        name : "One piece Encyclopedia",
+    },   
+    {
+        name : "Domain Expansion Encyclopedia",
+    },
+    {
+        name : "Fantasy Game",
+    },
+]
+
+
+const about = [
+    {
+        name : "My Info",
+    },
+    {
+        name : "Resume",
+    },
+    {
+        name : "Email",
+    },
+]
+
+
+const wallpaper = [
+    {
+        name : "Chrome Skull",
+        img : "./public/assets/skull.jpg"
+    },
+    {  
+        name : "head",
+        img : "./public/assets/head.jpg"
+    },
+    {   
+        name : "neo",
+        img : "./public/assets/cyan.jpg"
+    }
+];
+
+const help = [
+    {
+        name : "Search",
+    },
+];
+
+export{TaskBarApps, wallpaper, help, about, view, edit, file, main}

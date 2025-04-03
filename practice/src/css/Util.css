@@ -8,6 +8,11 @@
   src: url('../public/fonts/SFPRODISPLAYREGULAR.OTF');
 }
 
+@font-face {
+  font-family: lucida;
+  src: url('../public/fonts/Lucida-Grande-Regular-Font-ttf');
+}
+
 img,a  {
   -webkit-user-drag: none;
   -khtml-user-drag: none;
@@ -47,14 +52,13 @@ header{
   left: 0;
   width: 100%;
   height: 2.3rem;
-  z-index: 1;
-  background-image: linear-gradient(rgba(255, 255, 255), rgb(225, 225, 225) , rgb(125, 125, 125,0.90));
+  z-index: 2;
+  background-image: linear-gradient(rgba(255, 255, 255), rgb(225, 225, 225) , rgba(165, 165, 165, 0.9));
   box-shadow: 0px 2px 20px black;
   border-radius: 0px 0px 4px 4px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-
 }
 
 /*header buttons*/
@@ -98,6 +102,7 @@ footer{
   justify-content: center;
   margin-top: auto;
 }
+
 .main-content {
   flex: 1; /* Pushes footer to the bottom */
 }
@@ -171,6 +176,7 @@ footer{
 
 /*Names of icons for taskbar*/
 #icon_name{
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
  color: white;
  text-shadow: 1.5px 1.5px 1px black; 
  font-size: 1.1rem;
@@ -197,10 +203,51 @@ footer{
 }
 
 #option_box{
-  width: 5rem;
-  height: 10rem;
-  background-color: white;
-  position: relative;
+  position: absolute;
   display: flex;
   z-index: 2;
+  top: 2.3rem;
+}
+
+#option_box ul{
+  width: auto;
+  height: auto;
+  background-color: rgb(245, 245, 245);
+  margin: 0;
+  padding: 0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border-radius:4px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+#option_box button{
+  background-color: transparent;
+  border-top: 1px solid transparent;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  border-left: none;
+  border-right: none;
+  width: auto;
+  text-align: start;
+  padding: 0;
+  margin: 0;
+}
+
+#option_box h1{
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: black;
+  margin: 0.2rem 7rem 0.2rem 2rem;
+}
+
+#option_box button:hover{
+  background-color: #2790ff;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+#option_box button:hover h1{
+  color: white;
 }

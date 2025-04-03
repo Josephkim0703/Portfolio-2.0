@@ -1,7 +1,10 @@
 import {useState, useEffect, useRef} from 'react';
-function Header(){
+
+function Header(props){
     const [time, setTime] = useState("");
-    
+    const buttonRef = useRef([]);
+    const [active, setActive] = useState(false);
+    const [activeIndex, setActiveIndex] = useState(0);
     //clock 
     useEffect(() => {
         function updateClock() {
@@ -21,21 +24,74 @@ function Header(){
         const interval = setInterval(updateClock, 1000); 
         return () => clearInterval(interval); 
     },[])
+
+    //handle option bar logic when clicked
+    function handleButtonClick(id, location, index){
+        setActive(true)
+        props.hide(0, true)
+        props.grabHeaderId(id , location)
+        props.index(index);
+    };
+
+    //when hovering over header buttons the option bar moves along with your hover
+     function on(id, location, index){
+        //if header is clicked then active if not then dont show option box
+        if(active){
+        props.grabHeaderId(id , location);
+        props.hide(0, true);
+        props.index(index);
+        }
+
+        //this makes sure if you enter into a different button then the current it turns off the previous button
+        setActiveIndex(index);
+        buttonRef.current[activeIndex].style.backgroundImage = '';
+        buttonRef.current[activeIndex].style.color = ''; 
+    }
+
+    //handles hover off 
+   function off(index){
+        buttonRef.current[index].style.backgroundImage = '';
+        buttonRef.current[index].style.color = ''; 
+    }
     
+    //handle click function for hiding option box
+    useEffect(() => {
+        function handleClick(event) {
+
+            //this grabs header and option box
+            const headerLeft = document.querySelector('#header_left');
+            const optionBox = document.querySelector('#option_box');
+
+            //contain returns a null value and checks if my mouse clicked on something thats not inside the headerLeft or optionbox dom
+            if (!headerLeft.contains(event.target) && !optionBox.contains(event.target)) {
+                buttonRef.current.forEach(button => {
+                    button.style.backgroundImage = '';
+                    button.style.color = ''; 
+                });
+                props.hide(0, false);
+                setActive(false);
+            }
+        }
+        document.addEventListener('click', handleClick);
+
+        return () => {
+            document.removeEventListener('click', handleClick);
+        };
+    }, []);
 
     return(
         <header>
             <ul id='header_left'>
                 <li><img src="./public/assets/star.png" alt="" style={{width:"1.5rem", transform: "translatey(2px)",filter: "brightness(0)"}}/></li>
-                <button type='button'><li style={{fontWeight : 900}}>Joseph Kim</li></button>
-                <button type='button'><li>File</li></button>
-                <button type='button'><li>Edit</li></button>
-                <button type='button'><li>View</li></button>
-                <button type='button'><li>Go</li></button>
-                <button type='button'><li>Wallpaper</li></button>
-                <button type='button'><li>Help</li></button>
+                <button type='button' id='button0' onMouseEnter={() => on("main" , 3.5, 0)} onMouseLeave={() => off(0)} ref={(e) => buttonRef.current[0] = e} onClick={() => handleButtonClick("main" , 3.5, 0)}><li style={{fontWeight : 900}}>Joseph Kim</li></button>
+                <button type='button' id='button1' onMouseEnter={() => on("file" , 12.65, 1)} onMouseLeave={() => off(1)} ref={(e) => buttonRef.current[1] = e} onClick={() => handleButtonClick("file" , 12.65, 1)}><li>File</li></button>
+                <button type='button' id='button2' onMouseEnter={() => on("edit", 16.9, 2)} onMouseLeave={() => off(2)} ref={(e) => buttonRef.current[2] = e} onClick={() => handleButtonClick("edit", 16.9, 2)}><li>Edit</li></button>
+                <button type='button' id='button3' onMouseEnter={() => on("view", 21.3, 3)} onMouseLeave={() => off(3)} ref={(e) => buttonRef.current[3] = e} onClick={() => handleButtonClick("view", 21.3, 3)}><li>View</li></button>
+                <button type='button' id='button4' onMouseEnter={() => on("about", 26.44, 4)} onMouseLeave={() => off(4)} ref={(e) => buttonRef.current[4] = e} onClick={() => handleButtonClick("about", 26.44, 4)}><li>About</li></button>
+                <button type='button' id='button5' onMouseEnter={() => on("wallpaper", 32.3, 5)} onMouseLeave={() => off(5)} ref={(e) => buttonRef.current[5] = e} onClick={() => handleButtonClick("wallpaper", 32.3, 5)}><li>Wallpaper</li></button>
+                <button type='button' id='button6' onMouseEnter={() => on("help", 40.4, 6)} onMouseLeave={() => off(6)} ref={(e) => buttonRef.current[6] = e} onClick={() => handleButtonClick("help", 40.4, 6)}><li>Help</li></button>
             </ul>
-
+     
             <ul id='header_right'>
                 <li>{time}</li>
             </ul>
