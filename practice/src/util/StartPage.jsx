@@ -5,7 +5,7 @@ import Option_box from './OptionBox.jsx'
 import '../css/Util.css';
 function StartPage(){
 
- const [wallpaper, setWallpaper] = useState("./public/assets/wallpaper/skull.jpg");
+ const [wallpaper, setWallpaper] = useState("./public/assets/wallpaper/default.png");
  const [headerId, setHeaderId] = useState("");
  const [location, setLocation] = useState(0);
  const [index, setIndex] = useState(0);

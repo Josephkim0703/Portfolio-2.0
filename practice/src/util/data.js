@@ -88,22 +88,43 @@ const about = [
 
 //change wallpapers
 const wallpaper = [
-    {
-        name : "Chrome Skull",
-        img : "./public/assets/wallpaper/skull.jpg"
-    },
     {  
         name : "Default",
         img : "./public/assets/wallpaper/default.png"
     },
     {   
-        name : "Frutiger Aero",
-        img : "./public/assets/wallpaper/frutiger.png"
-    },
-    {   
         name : "Windows XP",
         img : "./public/assets/wallpaper/windows.jpg"
-    }
+    },
+    {
+        name : "Aesthetic Chrome Skull",
+        img : "./public/assets/wallpaper/skull.jpg"
+    },
+    {   
+        name : "One piece Wano Edition",
+        img : "./public/assets/wallpaper/WanoOP.jpg"
+    },
+    {   
+        name : "One piece Nami Edition",
+        img : "./public/assets/wallpaper/nami.jpg"
+    },
+    {   
+        name : "Neon Genesis Evangelion",
+        img : "./public/assets/wallpaper/neon.jpg"
+    },
+    {   
+        name : "Neon Genesis Evangelion Windows XP Edition",
+        img : "./public/assets/wallpaper/windowsneon.jpg"
+    },
+    {   
+        name : "Pokemon Psyduck-at-the-Store",
+        img : "./public/assets/wallpaper/psyduck.jpg"
+    },
+    {   
+        name : "Subaru Impreza WRX STI",
+        img : "./public/assets/wallpaper/subaru.jpg"
+    },
+   
 ];
 
 const help = [
