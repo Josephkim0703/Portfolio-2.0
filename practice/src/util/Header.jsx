@@ -56,12 +56,13 @@ function Header(props){
     
     //handle click function for hiding option box
     useEffect(() => {
+      if(active){
         function handleClick(event) {
 
             //this grabs header and option box
             const headerLeft = document.querySelector('#header_left');
             const optionBox = document.querySelector('#option_box');
-
+           
             //contain returns a null value and checks if my mouse clicked on something thats not inside the headerLeft or optionbox dom
             if (!headerLeft.contains(event.target) && !optionBox.contains(event.target)) {
                 buttonRef.current.forEach(button => {
@@ -71,13 +72,15 @@ function Header(props){
                 props.hide(0, false);
                 setActive(false);
             }
-        }
+
+    }
         document.addEventListener('click', handleClick);
 
         return () => {
             document.removeEventListener('click', handleClick);
-        };
-    }, []);
+            };
+        }
+    }, [active]);
 
     return(
         <header>
