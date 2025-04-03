@@ -89,10 +89,10 @@ function Header(props){
                 <button type='button' id='button0' onMouseEnter={() => on("main" , 3.5, 0)} onMouseLeave={() => off(0)} ref={(e) => buttonRef.current[0] = e} onClick={() => handleButtonClick("main" , 3.5, 0)}><li style={{fontWeight : 900}}>Joseph Kim</li></button>
                 <button type='button' id='button1' onMouseEnter={() => on("file" , 12.65, 1)} onMouseLeave={() => off(1)} ref={(e) => buttonRef.current[1] = e} onClick={() => handleButtonClick("file" , 12.65, 1)}><li>File</li></button>
                 <button type='button' id='button2' onMouseEnter={() => on("edit", 16.9, 2)} onMouseLeave={() => off(2)} ref={(e) => buttonRef.current[2] = e} onClick={() => handleButtonClick("edit", 16.9, 2)}><li>Edit</li></button>
-                <button type='button' id='button3' onMouseEnter={() => on("view", 21.3, 3)} onMouseLeave={() => off(3)} ref={(e) => buttonRef.current[3] = e} onClick={() => handleButtonClick("view", 21.3, 3)}><li>View</li></button>
-                <button type='button' id='button4' onMouseEnter={() => on("about", 26.44, 4)} onMouseLeave={() => off(4)} ref={(e) => buttonRef.current[4] = e} onClick={() => handleButtonClick("about", 26.44, 4)}><li>About</li></button>
-                <button type='button' id='button5' onMouseEnter={() => on("wallpaper", 32.3, 5)} onMouseLeave={() => off(5)} ref={(e) => buttonRef.current[5] = e} onClick={() => handleButtonClick("wallpaper", 32.3, 5)}><li>Wallpaper</li></button>
-                <button type='button' id='button6' onMouseEnter={() => on("help", 40.4, 6)} onMouseLeave={() => off(6)} ref={(e) => buttonRef.current[6] = e} onClick={() => handleButtonClick("help", 40.4, 6)}><li>Help</li></button>
+                <button type='button' id='button3' onMouseEnter={() => on("project", 21.3, 3)} onMouseLeave={() => off(3)} ref={(e) => buttonRef.current[3] = e} onClick={() => handleButtonClick("project", 21.3, 3)}><li>Project</li></button>
+                <button type='button' id='button4' onMouseEnter={() => on("about", 27.6, 4)} onMouseLeave={() => off(4)} ref={(e) => buttonRef.current[4] = e} onClick={() => handleButtonClick("about",  27.6, 4)}><li>About</li></button>
+                <button type='button' id='button5' onMouseEnter={() => on("wallpaper", 33.5, 5)} onMouseLeave={() => off(5)} ref={(e) => buttonRef.current[5] = e} onClick={() => handleButtonClick("wallpaper",  33.5, 5)}><li>Wallpaper</li></button>
+                <button type='button' id='button6' onMouseEnter={() => on("help", 41.6, 6)} onMouseLeave={() => off(6)} ref={(e) => buttonRef.current[6] = e} onClick={() => handleButtonClick("help", 41.6, 6)}><li>Help</li></button>
             </ul>
      
             <ul id='header_right'>

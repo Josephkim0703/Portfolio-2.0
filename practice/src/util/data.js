@@ -1,3 +1,4 @@
+//contains apps on the task bar
 const TaskBarApps = [
     {
         name: "Instagram",
@@ -27,6 +28,7 @@ const TaskBarApps = [
     }
 ];
 
+//socials media links
 const main = [
     {
         name : "Instagram",
@@ -39,7 +41,7 @@ const main = [
     },
 ]
 
-
+//photos videos, etc
 const file = [
     {
         name : "Photos",
@@ -52,15 +54,14 @@ const file = [
     },
 ]
 
-
 const edit = [
     {
         name : "Dark mode",
     },
 ]
 
-
-const view = [
+//contains my projects
+const project = [
     {
         name : "One piece Encyclopedia",
     },   
@@ -72,7 +73,7 @@ const view = [
     },
 ]
 
-
+//has all my info
 const about = [
     {
         name : "My Info",
@@ -85,19 +86,23 @@ const about = [
     },
 ]
 
-
+//change wallpapers
 const wallpaper = [
     {
         name : "Chrome Skull",
-        img : "./public/assets/skull.jpg"
+        img : "./public/assets/wallpaper/skull.jpg"
     },
     {  
-        name : "head",
-        img : "./public/assets/head.jpg"
+        name : "Default",
+        img : "./public/assets/wallpaper/default.png"
     },
     {   
-        name : "neo",
-        img : "./public/assets/cyan.jpg"
+        name : "Frutiger Aero",
+        img : "./public/assets/wallpaper/Frutigeraero.jpg"
+    },
+    {   
+        name : "Windows XP",
+        img : "./public/assets/wallpaper/windows.jpg"
     }
 ];
 
@@ -107,4 +112,4 @@ const help = [
     },
 ];
 
-export{TaskBarApps, wallpaper, help, about, view, edit, file, main}
+export{TaskBarApps, wallpaper, help, about, project, edit, file, main}

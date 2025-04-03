@@ -5,7 +5,7 @@ import Option_box from './OptionBox.jsx'
 import '../css/Util.css';
 function StartPage(){
 
- const [wallpaper, setWallpaper] = useState("./public/assets/skull.jpg");
+ const [wallpaper, setWallpaper] = useState("./public/assets/wallpaper/skull.jpg");
  const [headerId, setHeaderId] = useState("");
  const [location, setLocation] = useState(0);
  const [index, setIndex] = useState(0);
@@ -28,7 +28,7 @@ function StartPage(){
     <>
     <div id='screen_Border'>
         <Header grabHeaderId={handleGrabHeaderId} hide={updateHide} index={setIndex}/>
-        {hide[0] && <Option_box header={headerId} location={location} index={index}/>}
+        {hide[0] && <Option_box header={headerId} location={location} index={index} wallpaper={setWallpaper}/>}
         <Taskbar/>  
             <img src={wallpaper} alt="" id='wallpaper'/>          
     </div>
