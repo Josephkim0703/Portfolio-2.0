@@ -59,7 +59,7 @@ function StartPage(){
 
         <main>
           {tab.map((t, i) => (
-            <TextFile key={i} tabName={t.name} setTab={setTab} index={i}/>
+          t !== null ? <TextFile key={i} tabName={t.name} setTab={setTab} index={i}/> : null 
           ))}
         </main>
         <Taskbar/>  

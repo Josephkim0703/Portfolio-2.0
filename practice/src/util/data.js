@@ -83,12 +83,15 @@ const project = [
 const about = [
     {
         name : "Information",
+        index : 0
     },
     {
         name : "Resume",
+        index : 1
     },
     {
         name : "Contact",
+        index : 2
     },
 ]
 

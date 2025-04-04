@@ -40,11 +40,11 @@ function TextFile(props){
       };
 
     function closeButton(){
-        props.setTab((prev) => {
-          const newArr = [...prev]
-          newArr[props.index] = newArr.pop();
-          return newArr; 
-        });
+      //it filters and creates a new array for each i that doesnt equal the index closed button we clicked
+     props.setTab((prev) => {
+        return prev.map((element, i) => i == props.index? null : element)
+     })
+    
     }
 
     return(
