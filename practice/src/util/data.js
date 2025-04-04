@@ -32,12 +32,15 @@ const TaskBarApps = [
 const main = [
     {
         name : "Instagram",
+        link : "https://www.instagram.com/josephkim_/"
     },
     {
         name : "Github",
+        link : "https://github.com/Josephkim0703"
     },
     {
         name : "Linkdin",
+        link : "https://www.linkedin.com/in/josephkim0703/"
     },
 ]
 
@@ -64,12 +67,15 @@ const edit = [
 const project = [
     {
         name : "One piece Encyclopedia",
+        link: "https://josephkim0703.github.io/devil-fruit-encyclopedia/"
     },   
     {
         name : "Domain Expansion Encyclopedia",
+        link: "https://josephkim0703.github.io/Domain-Expansion/"
     },
     {
         name : "Fantasy Game",
+        link: ""
     },
 ]
 
@@ -128,6 +134,9 @@ const wallpaper = [
 ];
 
 const help = [
+    {
+        name : "Tutorial",
+    },
     {
         name : "Search",
     },

@@ -25,6 +25,7 @@ function StartPage(){
      });
    }
 
+  //handles hide function 
  function updateHide(index, value){
    setHide((prevHide) => {
      const newArr = [...prevHide];
@@ -33,11 +34,19 @@ function StartPage(){
    });
  }
 
+ //grabs all data needed when header is clicked for option box
  function handleGrabHeaderId(id , location){
     setHeaderId(id);
     setLocation(location);
  }
 
+ //saves previous wallpaper even when you exit out to new tab or link
+ useEffect(() =>{
+  const session = localStorage.getItem("wallpaper")
+  if(session){
+    setWallpaper(session);
+  }
+},[])
     return(
     <>
     <div id='screen_Border'>
@@ -46,11 +55,11 @@ function StartPage(){
                                 index={index} wallpaper={setWallpaper}
                                 active={active} setActive={setActive}
                                 opacity={opacity} updateOpacity={updateOpacity}
-                                setHide={updateHide} tab={setTab}/>}
+                                setHide={updateHide} setTab={setTab}/>}
 
         <main>
-          {tab.map((t) => (
-            <TextFile tabName={t.name}/>
+          {tab.map((t, i) => (
+            <TextFile key={i} tabName={t.name} setTab={setTab} index={i}/>
           ))}
         </main>
         <Taskbar/>  
@@ -61,3 +70,9 @@ function StartPage(){
 };
 
 export default StartPage;
+
+
+//List of things i need to do 
+//fix tab where the current one i click the z index pushes forward and send everything back
+//tab buttons need functionaily
+//tabs need unique data

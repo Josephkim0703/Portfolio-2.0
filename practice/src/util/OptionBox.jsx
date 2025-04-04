@@ -5,7 +5,7 @@ function OptionBox(props){
     
     const [currentArr, setCurrentArr] = useState(main);
     const boxRef = useRef(null);
- 
+    const [link, setLink] = useState(null);
 
     //switch statement to change option box buttons
     //the active[0] finds what the saved button presses were so when you go to the next box and come back your options are saved
@@ -46,24 +46,15 @@ function OptionBox(props){
       
       }, [props.header]);
 
-
-    //handles button colors if i hover over the corresponding option box
-    function on() {
-        const buttons = document.querySelectorAll('#header_left button');
-    
-        if (buttons[props.index]) {
-            buttons[props.index].style.backgroundImage = 'linear-gradient(rgb(133, 196, 248), rgb(56, 133, 235), rgb(5, 53, 155))';
-            buttons[props.index].style.color = 'white';
-        }
-    }
-
     //handles option box list functions
     function handleClick(index) {
         let i, x;
+        setLink(null)
         switch(props.header){
             case "main":
-                i = index;
+                i = null;
                 x = 0;
+                setLink(main[index].link)
                 break;
             case "file":
                 i = index;
@@ -74,8 +65,9 @@ function OptionBox(props){
                 x = 2;
                 break;
             case "project":
-                i = index;
+                i = null;
                 x = 3;
+                setLink(project[index].link)
                 break;
             case "about":
                 i = index;
@@ -89,6 +81,7 @@ function OptionBox(props){
                 i = index;
                 x = 5;
                     props.wallpaper(wallpaper[index].img); 
+                    localStorage.setItem("wallpaper", wallpaper[index].img);
                 break;
             case "help":
                 i = index;
@@ -106,15 +99,28 @@ function OptionBox(props){
         props.updateOpacity(i);
     }
 
+     //handles button colors if i hover over the corresponding option box
+     function on() {
+      const buttons = document.querySelectorAll('#header_left button');
+  
+      if (buttons[props.index]) {
+          buttons[props.index].style.backgroundImage = 'linear-gradient(rgb(133, 196, 248), rgb(56, 133, 235), rgb(5, 53, 155))';
+          buttons[props.index].style.color = 'white';
+      }
+    }
+
+
+
 return(
     <>
     <div id="option_box" style={{left: `${props.location}rem` }} onMouseEnter={on} ref={boxRef}>
         <ul>
        {currentArr.map((element, i) => (
-                <button key={i} onClick={() => handleClick(i)}>
+               <a href={link} key={i} ><button key={i} onClick={() => handleClick(i)} >
+                   
                     <p style={{opacity : props.opacity[i]}}><i className="fa-solid fa-check"></i></p>
                     <h1>{element.name}</h1>
-                </button>      
+                </button></a>     
        ))}
        </ul>
     </div>

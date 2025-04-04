@@ -7,7 +7,7 @@ function TextFile(props){
     const [position, setPosition] = useState({ x: 0, y: 0 });
   
     //handles when i click down on the header of the textfile
-    const mouseDown = (e) => {
+    function mouseDown(e) {
         //grabs position of what you click and returns an object
       const rect = noteRef.current.getBoundingClientRect();
       setPosition({
@@ -21,13 +21,13 @@ function TextFile(props){
     };
 
     //handles mouse up
-    const mouseUp = () => {
+    function mouseUp() {
         setDrag(false);
         setCursor("");
       };
   
     //handles mouse move
-    const mouseMove = (e) => {
+    function mouseMove(e) {
         if (!drag) return;
       
         const X = e.clientX - position.x;
@@ -39,19 +39,27 @@ function TextFile(props){
         noteRef.current.style.top = `${limitY}px`;
       };
 
+    function closeButton(){
+        props.setTab((prev) => {
+          const newArr = [...prev]
+          newArr[props.index] = newArr.pop();
+          return newArr; 
+        });
+    }
+
     return(
         <>
-            <div id='notepad' ref={noteRef} onMouseMove={mouseMove} onMouseUp={mouseUp} onMouseLeave={mouseUp}>
-                <div id='notepad_header' onMouseDown={mouseDown} style={{cursor: cursor}}>
+            <div id='tab' ref={noteRef} onMouseMove={mouseMove} onMouseUp={mouseUp} onMouseLeave={mouseUp}>
+                <div id='tab_header' onMouseDown={mouseDown} style={{cursor: cursor}}>
                     <div>
-                    <button type='button' id='button_x'></button>
+                    <button type='button' id='button_x' onClick={closeButton}></button>
                     <button type='button' id='button_min'></button>
                     <button type='button' id='button_max'></button>
                     </div>
                     <h1>{props.tabName}</h1>
                 </div>
-                <div>
-
+                <div id='tab_data'>
+                      <textarea name="" id="">I love you maam</textarea>
                 </div>
             </div>
         </>
