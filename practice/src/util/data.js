@@ -76,13 +76,13 @@ const project = [
 //has all my info
 const about = [
     {
-        name : "My Info",
+        name : "Information",
     },
     {
         name : "Resume",
     },
     {
-        name : "Email",
+        name : "Contact",
     },
 ]
 

@@ -2,6 +2,7 @@ import {useState, useEffect, useRef} from 'react';
 import Taskbar from './Taskbar.jsx'
 import Header from './Header.jsx'
 import Option_box from '../util/OptionBox.jsx'
+import TextFile from '../util/TextFile.jsx'
 import '../css/Util.css';
 function StartPage(){
 
@@ -9,9 +10,11 @@ function StartPage(){
  const [headerId, setHeaderId] = useState("");
  const [location, setLocation] = useState(0);
  const [index, setIndex] = useState(0);
- const [hide, setHide] = useState(Array(2).fill(false));
+
+ const [hide, setHide] = useState(Array(10).fill(false));
  const [opacity, setOpacity] = useState(Array(10).fill(0));
  const [active, setActive] = useState(Array(6).fill(null))
+ const [tab, setTab] = useState([]);
 
  //function for changing the opacity for active buttons
  function updateOpacity(index) {
@@ -42,7 +45,14 @@ function StartPage(){
         {hide[0] && <Option_box header={headerId} location={location} 
                                 index={index} wallpaper={setWallpaper}
                                 active={active} setActive={setActive}
-                                opacity={opacity} updateOpacity={updateOpacity}/>}
+                                opacity={opacity} updateOpacity={updateOpacity}
+                                setHide={updateHide} tab={setTab}/>}
+
+        <main>
+          {tab.map((t) => (
+            <TextFile tabName={t.name}/>
+          ))}
+        </main>
         <Taskbar/>  
             <img src={wallpaper} alt="" id='wallpaper'/>          
     </div>

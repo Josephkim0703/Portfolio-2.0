@@ -59,10 +59,7 @@ function OptionBox(props){
 
     //handles option box list functions
     function handleClick(index) {
-      
-        let i;
-        let x;
-        console.log(index, props.header)
+        let i, x;
         switch(props.header){
             case "main":
                 i = index;
@@ -83,6 +80,10 @@ function OptionBox(props){
             case "about":
                 i = index;
                 x = 4;
+                  props.setTab((prev) => [
+                    ...prev,
+                    {name: about[index].name}
+                ]);
                 break;
             case "wallpaper":
                 i = index;

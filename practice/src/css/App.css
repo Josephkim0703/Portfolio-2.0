@@ -16,12 +16,6 @@ h1{
     color: white;
 }
 
-main button{
-    position: relative;
-    top: 50%;
-    left: 50%;
-}
-
 img, a {
     -webkit-user-drag: none;
     -khtml-user-drag: none;
