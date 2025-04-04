@@ -122,7 +122,7 @@ const wallpaper = [
     },
     {   
         name : "Subaru Impreza WRX STI",
-        img : "./public/assets/wallpaper/subaru.jpg"
+        img : "./public/assets/wallpaper/subaru.png"
     },
    
 ];

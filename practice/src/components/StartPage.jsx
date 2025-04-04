@@ -1,7 +1,7 @@
 import {useState, useEffect, useRef} from 'react';
 import Taskbar from './Taskbar.jsx'
 import Header from './Header.jsx'
-import Option_box from './OptionBox.jsx'
+import Option_box from '../util/OptionBox.jsx'
 import '../css/Util.css';
 function StartPage(){
 

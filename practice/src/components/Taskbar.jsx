@@ -1,5 +1,5 @@
 import {useState, useEffect, useRef} from 'react';
-import { TaskBarApps } from './data.js';
+import { TaskBarApps } from '../util/data.js';
 
 function Taskbar(){
 
