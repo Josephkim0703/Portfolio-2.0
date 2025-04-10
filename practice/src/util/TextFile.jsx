@@ -5,7 +5,13 @@ function TextFile(props){
     const [drag, setDrag] = useState(false);
     const [cursor, setCursor] = useState("");
     const [position, setPosition] = useState({ x: 0, y: 0 });
-  
+
+    const [active, setActive] = useState(false);
+    const [prevLeft, setPrevLeft] = useState(0);
+    const [prevTop, setPrevTop] = useState(0);
+    const [prevWidth, setPrevWidth] = useState("40rem");
+    const [prevHeight, setPrevHeight] = useState("40rem");
+
     //handles when i click down on the header of the textfile
     function mouseDown(e) {
         //grabs position of what you click and returns an object
@@ -37,6 +43,8 @@ function TextFile(props){
       
         noteRef.current.style.left = `${X}px`;
         noteRef.current.style.top = `${limitY}px`;
+        setPrevLeft(`${X}px`);
+        setPrevTop(`${limitY}px`);
       };
 
     function closeButton(){
@@ -44,8 +52,68 @@ function TextFile(props){
      props.setTab((prev) => {
         return prev.map((element, i) => i == props.index? null : element)
      })
-    
+     props.main.current.style.zIndex = 1;
     }
+
+    function minimize(e){
+      
+    }
+
+    function maximize(){
+      if(!active){
+      noteRef.current.style.width = "100vw";
+      noteRef.current.style.height = "100vh";
+      noteRef.current.style.left = 0;
+      noteRef.current.style.top = 0;
+      noteRef.current.style.borderRadius = 0;
+      props.main.current.style.zIndex = 5;
+      setActive(true);
+      }else{
+        props.main.current.style.zIndex = 1;
+        noteRef.current.style.left = prevLeft;
+        noteRef.current.style.top = prevTop;
+        switch(props.tabName){
+          case 'How to Navigate':
+            noteRef.current.style.width = "40rem";
+            noteRef.current.style.height = "30rem";
+            break;
+          case 'About Me':
+            noteRef.current.style.width = "40rem";
+            noteRef.current.style.height = "35rem";
+            break;
+          case 'Resume':
+            break;
+          case 'Contact':
+              break;
+          default:
+        }
+    
+        
+            
+        setActive(false);
+    }
+    }
+
+
+    useEffect(() => {
+      switch(props.tabName){
+        case 'How to Navigate':
+          noteRef.current.style.width = "40rem";
+          noteRef.current.style.height = "30rem";
+          break;
+        case 'About Me':
+          noteRef.current.style.width = "40rem";
+          noteRef.current.style.height = "35rem";
+          break;
+        case 'Resume':
+          break;
+        case 'Contact':
+            break;
+        default:
+      }
+    },[])
+
+
 
     return(
         <>
@@ -53,13 +121,13 @@ function TextFile(props){
                 <div id='tab_header' onMouseDown={mouseDown} style={{cursor: cursor}}>
                     <div>
                     <button type='button' id='button_x' onClick={closeButton}></button>
-                    <button type='button' id='button_min'></button>
-                    <button type='button' id='button_max'></button>
+                    <button type='button' id='button_min' onClick={minimize}></button>
+                    <button type='button' id='button_max' onClick={maximize}></button>
                     </div>
                     <h1>{props.tabName}</h1>
                 </div>
                 <div id='tab_data'>
-                      <textarea name="" id="">I love you maam</textarea>
+                      <div dangerouslySetInnerHTML={{__html : props.info}}></div>
                 </div>
             </div>
         </>

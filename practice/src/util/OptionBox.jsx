@@ -74,7 +74,10 @@ function OptionBox(props){
                 x = 4;
                   props.setTab((prev) => [
                     ...prev,
-                    {name: about[index].name}
+                    {name: about[index].name,
+                     info: about[index].info,
+                     index: about[index].index
+                    } 
                 ]);
                 break;
             case "wallpaper":
@@ -108,8 +111,6 @@ function OptionBox(props){
           buttons[props.index].style.color = 'white';
       }
     }
-
-
 
 return(
     <>

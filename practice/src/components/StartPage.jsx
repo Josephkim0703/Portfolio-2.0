@@ -15,6 +15,8 @@ function StartPage(){
  const [opacity, setOpacity] = useState(Array(10).fill(0));
  const [active, setActive] = useState(Array(6).fill(null))
  const [tab, setTab] = useState([]);
+ const mainRef = useRef(null);
+ const tabRef = useRef([])
 
  //function for changing the opacity for active buttons
  function updateOpacity(index) {
@@ -47,6 +49,7 @@ function StartPage(){
     setWallpaper(session);
   }
 },[])
+
     return(
     <>
     <div id='screen_Border'>
@@ -57,9 +60,9 @@ function StartPage(){
                                 opacity={opacity} updateOpacity={updateOpacity}
                                 setHide={updateHide} setTab={setTab}/>}
 
-        <main>
-          {tab.map((t, i) => (
-          t !== null ? <TextFile key={i} tabName={t.name} setTab={setTab} index={i}/> : null 
+        <main ref={mainRef}>
+        { tab.map((t, i) => (
+          t !== null ? <TextFile key={i} tabName={t.name} setTab={setTab} index={i} info={t.info} main={mainRef}/> : null
           ))}
         </main>
         <Taskbar/>  
@@ -73,6 +76,5 @@ export default StartPage;
 
 
 //List of things i need to do 
-//fix tab where the current one i click the z index pushes forward and send everything back
 //tab buttons need functionaily
 //tabs need unique data
