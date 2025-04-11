@@ -16,7 +16,6 @@ function StartPage(){
  const [active, setActive] = useState(Array(6).fill(null))
  const [tab, setTab] = useState([]);
  const mainRef = useRef(null);
- const tabRef = useRef([])
 
  //function for changing the opacity for active buttons
  function updateOpacity(index) {
@@ -54,7 +53,7 @@ function StartPage(){
     <>
     <div id='screen_Border'>
         <Header grabHeaderId={handleGrabHeaderId} hide={updateHide} index={setIndex}/>
-        {hide[0] && <Option_box header={headerId} location={location} 
+        {hide[0] && <Option_box header={headerId} location={location}
                                 index={index} wallpaper={setWallpaper}
                                 active={active} setActive={setActive}
                                 opacity={opacity} updateOpacity={updateOpacity}
@@ -62,7 +61,7 @@ function StartPage(){
 
         <main ref={mainRef}>
         { tab.map((t, i) => (
-          t !== null ? <TextFile key={i} tabName={t.name} setTab={setTab} index={i} info={t.info} main={mainRef}/> : null
+          t !== null ? <TextFile key={i} tabName={t.name} setTab={setTab} index={i} info={t.info} main={mainRef} /> : null
           ))}
         </main>
         <Taskbar/>  

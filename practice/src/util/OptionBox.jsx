@@ -1,4 +1,4 @@
-import {useState, useEffect, useRef} from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import { wallpaper, help, about, project, edit, file, main } from './data.js';
 
 function OptionBox(props){
@@ -72,13 +72,16 @@ function OptionBox(props){
             case "about":
                 i = index;
                 x = 4;
-                  props.setTab((prev) => [
-                    ...prev,
-                    {name: about[index].name,
-                     info: about[index].info,
-                     index: about[index].index
-                    } 
-                ]);
+                props.setTab((prev) => [
+                      ...prev,
+                      {
+                          name: about[index].name,
+                          info: about[index].info,
+                          index: about[index].index
+                      }  
+              ]);
+            //  const tab = document.querySelector('#tab')
+             //   tab.style.zIndex = 2;
                 break;
             case "wallpaper":
                 i = index;

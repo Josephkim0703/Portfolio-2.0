@@ -1,21 +1,21 @@
 import {useState, useEffect, useRef} from 'react';
 function TextFile(props){
 
-    const noteRef = useRef(null);
+    const noteRef = useRef([]);
     const [drag, setDrag] = useState(false);
     const [cursor, setCursor] = useState("");
     const [position, setPosition] = useState({ x: 0, y: 0 });
 
     const [active, setActive] = useState(false);
-    const [prevLeft, setPrevLeft] = useState(0);
-    const [prevTop, setPrevTop] = useState(0);
+    const [prevLeft, setPrevLeft] = useState(null);
+    const [prevTop, setPrevTop] = useState(null);
     const [prevWidth, setPrevWidth] = useState("40rem");
     const [prevHeight, setPrevHeight] = useState("40rem");
-
+    const forward = "forward"
     //handles when i click down on the header of the textfile
     function mouseDown(e) {
         //grabs position of what you click and returns an object
-      const rect = noteRef.current.getBoundingClientRect();
+      const rect = noteRef.current[props.index].getBoundingClientRect();
       setPosition({
         //calculating how far the mouse is from the left edge of the notepad. Same for top.
         //minus where i click to the current position of the box
@@ -41,12 +41,13 @@ function TextFile(props){
       
         const limitY = Math.max(Y, 29);
       
-        noteRef.current.style.left = `${X}px`;
-        noteRef.current.style.top = `${limitY}px`;
+        noteRef.current[props.index].style.left = `${X}px`;
+        noteRef.current[props.index].style.top = `${limitY}px`;
         setPrevLeft(`${X}px`);
         setPrevTop(`${limitY}px`);
       };
 
+    //handles close button on tab when clicked closes tab and makes sure only the current tab is closed
     function closeButton(){
       //it filters and creates a new array for each i that doesnt equal the index closed button we clicked
      props.setTab((prev) => {
@@ -59,51 +60,51 @@ function TextFile(props){
       
     }
 
-    function maximize(){
+    //handles maximize button when clicked increases or decreases size of notepad
+    function maximize(e){
       if(!active){
-      noteRef.current.style.width = "100vw";
-      noteRef.current.style.height = "100vh";
-      noteRef.current.style.left = 0;
-      noteRef.current.style.top = 0;
-      noteRef.current.style.borderRadius = 0;
+      noteRef.current[props.index].style.width = "100vw";
+      noteRef.current[props.index].style.height = "100vh";
+      noteRef.current[props.index].style.left = 0;
+      noteRef.current[props.index].style.top = 0;
+      noteRef.current[props.index].style.borderRadius = 0;
       props.main.current.style.zIndex = 5;
       setActive(true);
       }else{
+      
         props.main.current.style.zIndex = 1;
-        noteRef.current.style.left = prevLeft;
-        noteRef.current.style.top = prevTop;
-        switch(props.tabName){
-          case 'How to Navigate':
-            noteRef.current.style.width = "40rem";
-            noteRef.current.style.height = "30rem";
-            break;
-          case 'About Me':
-            noteRef.current.style.width = "40rem";
-            noteRef.current.style.height = "35rem";
-            break;
-          case 'Resume':
-            break;
-          case 'Contact':
+        noteRef.current[props.index].style.left = prevLeft;
+        noteRef.current[props.index].style.top = prevTop;
+        noteRef.current[props.index].style.borderRadius = "10px 10px 0px 0px";
+          switch(props.tabName){
+            case 'How to Navigate':
+              noteRef.current[props.index].style.width = "40rem";
+              noteRef.current[props.index].style.height = "30rem";
               break;
-          default:
-        }
-    
-        
-            
+            case 'About Me':
+              noteRef.current[props.index].style.width = "40rem";
+              noteRef.current[props.index].style.height = "35rem";
+              break;
+            case 'Resume':
+              break;
+            case 'Contact':
+                break;
+            default:
+          }        
         setActive(false);
     }
     }
 
-
+    //sets size of tab depending on what was clicked
     useEffect(() => {
       switch(props.tabName){
         case 'How to Navigate':
-          noteRef.current.style.width = "40rem";
-          noteRef.current.style.height = "30rem";
+          noteRef.current[props.index].style.width = "40rem";
+          noteRef.current[props.index].style.height = "30rem";
           break;
         case 'About Me':
-          noteRef.current.style.width = "40rem";
-          noteRef.current.style.height = "35rem";
+          noteRef.current[props.index].style.width = "40rem";
+          noteRef.current[props.index].style.height = "35rem";
           break;
         case 'Resume':
           break;
@@ -114,10 +115,15 @@ function TextFile(props){
     },[])
 
 
+    function handleCurrentTab(index) {
+      
+    }
+  
+
 
     return(
         <>
-            <div id='tab' ref={noteRef} onMouseMove={mouseMove} onMouseUp={mouseUp} onMouseLeave={mouseUp}>
+            <div id="tab"   ref={(e) => noteRef.current[props.index] = e} onMouseMove={mouseMove} onMouseUp={mouseUp} onMouseLeave={mouseUp} onMouseDown={() => handleCurrentTab(props.index)}>
                 <div id='tab_header' onMouseDown={mouseDown} style={{cursor: cursor}}>
                     <div>
                     <button type='button' id='button_x' onClick={closeButton}></button>
