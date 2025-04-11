@@ -17,6 +17,8 @@ function StartPage(){
  const [tab, setTab] = useState([]);
  const mainRef = useRef(null);
 
+ const [activeTabIndex, setActiveTabIndex] = useState(null);
+
  //function for changing the opacity for active buttons
  function updateOpacity(index) {
      setOpacity((prevOpacity) => {
@@ -49,6 +51,10 @@ function StartPage(){
   }
 },[])
 
+function handleTabClick(index) {
+  setActiveTabIndex(index);
+};
+
     return(
     <>
     <div id='screen_Border'>
@@ -61,8 +67,9 @@ function StartPage(){
 
         <main ref={mainRef}>
         { tab.map((t, i) => (
-          t !== null ? <TextFile key={i} tabName={t.name} setTab={setTab} index={i} info={t.info} main={mainRef} /> : null
-          ))}
+          t !== null ? <TextFile key={i} tabName={t.name} setTab={setTab} index={i} 
+                                 info={t.info} main={mainRef} activeTabIndex={activeTabIndex} 
+                                 handleTabClick={handleTabClick}/> : null))}
         </main>
         <Taskbar/>  
             <img src={wallpaper} alt="" id='wallpaper'/>          

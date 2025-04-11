@@ -9,9 +9,6 @@ function TextFile(props){
     const [active, setActive] = useState(false);
     const [prevLeft, setPrevLeft] = useState(null);
     const [prevTop, setPrevTop] = useState(null);
-    const [prevWidth, setPrevWidth] = useState("40rem");
-    const [prevHeight, setPrevHeight] = useState("40rem");
-    const forward = "forward"
     //handles when i click down on the header of the textfile
     function mouseDown(e) {
         //grabs position of what you click and returns an object
@@ -114,32 +111,35 @@ function TextFile(props){
       }
     },[])
 
-
-    function handleCurrentTab(index) {
-      
+    function handleCurrentTab() {
+      props.handleTabClick(props.index);
     }
-  
 
-
-    return(
-        <>
-            <div id="tab"   ref={(e) => noteRef.current[props.index] = e} onMouseMove={mouseMove} onMouseUp={mouseUp} onMouseLeave={mouseUp} onMouseDown={() => handleCurrentTab(props.index)}>
-                <div id='tab_header' onMouseDown={mouseDown} style={{cursor: cursor}}>
-                    <div>
-                    <button type='button' id='button_x' onClick={closeButton}></button>
-                    <button type='button' id='button_min' onClick={minimize}></button>
-                    <button type='button' id='button_max' onClick={maximize}></button>
-                    </div>
-                    <h1>{props.tabName}</h1>
-                </div>
-                <div id='tab_data'>
-                      <div dangerouslySetInnerHTML={{__html : props.info}}></div>
-                </div>
+    return (
+      <>
+        <div
+          id="tab"
+          ref={(e) => (noteRef.current[props.index] = e)}
+          onMouseMove={mouseMove}
+          onMouseUp={mouseUp}
+          onMouseLeave={mouseUp}
+          onMouseDown={handleCurrentTab}
+          style={{zIndex: props.activeTabIndex === props.index ? 2 : 1}}
+        >
+          <div id="tab_header" onMouseDown={mouseDown} style={{ cursor: cursor }}>
+            <div>
+              <button type="button" id="button_x" onClick={closeButton}></button>
+              <button type="button" id="button_min" onClick={minimize}></button>
+              <button type="button" id="button_max" onClick={maximize}></button>
             </div>
-        </>
-    )
-
-
-}
+            <h1>{props.tabName}</h1>
+          </div>
+          <div id="tab_data">
+            <div dangerouslySetInnerHTML={{ __html: props.info }}></div>
+          </div>
+        </div>
+      </>
+    );
+  }
 
 export default TextFile
