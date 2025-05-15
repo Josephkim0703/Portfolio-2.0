@@ -1,4 +1,5 @@
 import {useState, useEffect, useRef} from 'react';
+import { TaskBarApps } from '../util/data.js';
 function TextFile(props){
 
     const noteRef = useRef([]);
@@ -54,11 +55,24 @@ function TextFile(props){
     }
 
     function minimize(e){
-      
+      props.setTab((prev) => {
+        return prev.map((element, i) => i == props.index? null : element)
+     })
+     TaskBarApps.splice((TaskBarApps.length) => (
+      {
+          name: props.tabName,
+          logo: "./public/assets/star.png",
+          link: "",
+          active: "off",
+          position: "right"
+        }));
+         
+     
+
     }
 
     //handles maximize button when clicked increases or decreases size of notepad
-    function maximize(e){
+    function maximize(){
       if(!active){
       noteRef.current[props.index].style.width = "100vw";
       noteRef.current[props.index].style.height = "100vh";
@@ -117,15 +131,10 @@ function TextFile(props){
 
     return (
       <>
-        <div
-          id="tab"
-          ref={(e) => (noteRef.current[props.index] = e)}
-          onMouseMove={mouseMove}
-          onMouseUp={mouseUp}
-          onMouseLeave={mouseUp}
-          onMouseDown={handleCurrentTab}
-          style={{zIndex: props.activeTabIndex === props.index ? 2 : 1}}
-        >
+        <div id="tab" ref={(e) => (noteRef.current[props.index] = e)}
+             onMouseMove={mouseMove} onMouseUp={mouseUp} onMouseLeave={mouseUp} onMouseDown={handleCurrentTab}
+             style={{zIndex: props.activeTabIndex === props.index ? 2 : 1}}>
+
           <div id="tab_header" onMouseDown={mouseDown} style={{ cursor: cursor }}>
             <div>
               <button type="button" id="button_x" onClick={closeButton}></button>

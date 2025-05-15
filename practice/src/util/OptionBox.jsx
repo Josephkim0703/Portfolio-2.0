@@ -96,7 +96,7 @@ function OptionBox(props){
             default: 
                 i = index;
         }
-        //this stores what index and buttonw as pressed
+        //this stores what index and button was pressed
         props.setActive((prev) =>{
             const newArr = [...prev];
             newArr[x] = i;
