@@ -80,8 +80,6 @@ function OptionBox(props){
                           index: about[index].index
                       }  
               ]);
-            //  const tab = document.querySelector('#tab')
-             //   tab.style.zIndex = 2;
                 break;
             case "wallpaper":
                 i = index;

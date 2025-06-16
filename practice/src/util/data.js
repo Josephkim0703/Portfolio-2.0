@@ -1,27 +1,44 @@
 //contains apps on the task bar
 const TaskBarApps = [
-    {
-        name: "Instagram",
-        logo: "./public/assets/Instagram.png",
+     {
+        name: "Finder",
+        logo: "./public/assets/icons/finder.png",
         active: "off",
         position: "left"
     },
     {
-        name: "File Explorer",
-        logo: "./public/assets/rocket.png",
+        name: "Mail",
+        logo: "./public/assets/icons/email.png",
+        active: "off",
+        position: "left"
+    },
+    {
+        name: "iTunes",
+        logo: "./public/assets/icons/music.png",
+        active: "off",
+        position: "left"
+    },
+    {
+        name: "Calendar",
+        logo: "./public/assets/icons/calender.png",
         active: "off",
         position: "left"
     }, 
     {
-        name: "Github",
-        logo: "./public/assets/star.png",
-        link: "https://github.com/Josephkim0703",
+        name: "QuickTime Player",
+        logo: "./public/assets/icons/q.png",
+        active: "off",
+        position: "left"
+    },    
+    {
+        name: "System Preferences",
+        logo: "./public/assets/icons/setting.png",
         active: "off",
         position: "left"
     },
     {
         name: "Trash",
-        logo: "./public/assets/star.png",
+        logo: "./public/assets/icons/trashcan_empty.png",
         link: "https://github.com/Josephkim0703",
         active: "off",
         position: "right"

@@ -54,21 +54,23 @@ function TextFile(props){
      props.main.current.style.zIndex = 1;
     }
 
-    function minimize(e){
+    //handles function call to minimize tab and place in taskbar
+    function minimize(index){
       props.setTab((prev) => {
         return prev.map((element, i) => i == props.index? null : element)
      })
-     TaskBarApps.splice((TaskBarApps.length) => (
+     TaskBarApps.splice((TaskBarApps.length - 1), 0, 
       {
           name: props.tabName,
-          logo: "./public/assets/star.png",
+          logo: "./public/assets/icons/txtfile.png",
           link: "",
-          active: "off",
-          position: "right"
-        }));
+          active: "on",
+          position: "right",
          
-     
 
+        });
+         console.log(index)
+         props.main.current.style.zIndex = 1;
     }
 
     //handles maximize button when clicked increases or decreases size of notepad

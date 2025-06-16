@@ -85,7 +85,7 @@ function Header(props){
     return(
         <header>
             <ul id='header_left'>
-                <li><img src="./public/assets/star.png" alt="" style={{width:"1.5rem", transform: "translatey(2px)",filter: "brightness(0)"}}/></li>
+                <li><img src="./public/assets/icons/star.png" alt="" style={{width:"1.5rem", transform: "translatey(2px)",filter: "brightness(0)"}}/></li>
                 <button type='button' id='button0' onMouseEnter={() => on("main" , 2.71, 0)} onMouseLeave={() => off(0)} ref={(e) => buttonRef.current[0] = e} onClick={() => handleButtonClick("main" ,  2.71, 0)}><li style={{fontWeight : 900}}>Joseph Kim</li></button>
                 <button type='button' id='button1' onMouseEnter={() => on("file" , 9.59, 1)} onMouseLeave={() => off(1)} ref={(e) => buttonRef.current[1] = e} onClick={() => handleButtonClick("file" , 9.59, 1)}><li>File</li></button>
                 <button type='button' id='button2' onMouseEnter={() => on("edit", 12.64, 2)} onMouseLeave={() => off(2)} ref={(e) => buttonRef.current[2] = e} onClick={() => handleButtonClick("edit", 12.64, 2)}><li>Edit</li></button>
