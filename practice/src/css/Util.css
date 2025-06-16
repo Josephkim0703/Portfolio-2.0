@@ -151,7 +151,7 @@ footer{
 
 /*Task bar app icons buttons*/
 #taskbar button{
-  margin: 0;
+  margin: 2px 0px 0px 0px;
   padding: 0px 6px;
   border: none;
   display: flex;
@@ -177,7 +177,7 @@ footer{
   border-left: 5px solid transparent;
   border-right: 5px solid transparent;
   border-bottom: 6px solid black;
-  margin-top: 2%;
+  margin-top: 4%;
   background-color: transparent;
   transition: opacity 0.3s;
   outline: none;
@@ -191,8 +191,8 @@ footer{
   font-size: 14px;
   position: absolute; 
   top: -2.5rem;
-  left: -0.7rem; 
-  width: 6rem;
+  left: -2.5rem; 
+  width: 10rem;
   text-align: center;
 }
 

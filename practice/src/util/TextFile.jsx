@@ -28,7 +28,7 @@ function TextFile(props){
     function mouseUp() {
         setDrag(false);
         setCursor("");
-      };
+    };
   
     //handles mouse move
     function mouseMove(e) {
@@ -43,33 +43,30 @@ function TextFile(props){
         noteRef.current[props.index].style.top = `${limitY}px`;
         setPrevLeft(`${X}px`);
         setPrevTop(`${limitY}px`);
-      };
+    };
 
     //handles close button on tab when clicked closes tab and makes sure only the current tab is closed
     function closeButton(){
       //it filters and creates a new array for each i that doesnt equal the index closed button we clicked
      props.setTab((prev) => {
         return prev.map((element, i) => i == props.index? null : element)
-     })
+     });
      props.main.current.style.zIndex = 1;
     }
 
     //handles function call to minimize tab and place in taskbar
-    function minimize(index){
+    function minimize(){
       props.setTab((prev) => {
         return prev.map((element, i) => i == props.index? null : element)
      })
      TaskBarApps.splice((TaskBarApps.length - 1), 0, 
       {
           name: props.tabName,
-          logo: "./public/assets/icons/txtfile.png",
+          logo: "./public/assets/icons/txt.png",
           link: "",
           active: "on",
           position: "right",
-         
-
         });
-         console.log(index)
          props.main.current.style.zIndex = 1;
     }
 

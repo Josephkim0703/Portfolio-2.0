@@ -7,8 +7,26 @@ const TaskBarApps = [
         position: "left"
     },
     {
+        name: "Dashboard",
+        logo: "./public/assets/icons/dashboard.png",
+        active: "off",
+        position: "left"
+    },
+    {
         name: "Mail",
         logo: "./public/assets/icons/email.png",
+        active: "off",
+        position: "left"
+    },
+    {
+        name: "Contact",
+        logo: "./public/assets/icons/contact.png",
+        active: "off",
+        position: "left"
+    },
+    {
+        name: "Photo booth",
+        logo: "./public/assets/icons/photobooth.png",
         active: "off",
         position: "left"
     },
