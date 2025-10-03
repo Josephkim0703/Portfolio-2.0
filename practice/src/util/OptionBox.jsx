@@ -72,6 +72,7 @@ function OptionBox(props){
             case "about":
                 i = index;
                 x = 4;
+                props.setPopup("textfile");
                 props.setTab((prev) => [
                       ...prev,
                       {

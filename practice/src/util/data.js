@@ -4,62 +4,72 @@ const TaskBarApps = [
         name: "Finder",
         logo: "./public/assets/icons/finder.png",
         active: "off",
-        position: "left"
+        position: "left",
+        index: 0
     },
     {
         name: "Dashboard",
         logo: "./public/assets/icons/dashboard.png",
         active: "off",
-        position: "left"
+        position: "left",
+        index: 1
     },
     {
         name: "Mail",
         logo: "./public/assets/icons/email.png",
         active: "off",
-        position: "left"
+        position: "left",
+        index: 2
     },
     {
         name: "Contact",
         logo: "./public/assets/icons/contact.png",
         active: "off",
-        position: "left"
+        position: "left",
+        index: 3
     },
     {
         name: "Photo booth",
         logo: "./public/assets/icons/photobooth.png",
         active: "off",
-        position: "left"
+        position: "left",
+        index: 4
     },
     {
         name: "iTunes",
         logo: "./public/assets/icons/music.png",
         active: "off",
-        position: "left"
+        position: "left",
+        index: 5
     },
     {
         name: "Calendar",
         logo: "./public/assets/icons/calender.png",
         active: "off",
-        position: "left"
+        position: "left",
+        index: 6
     }, 
     {
         name: "QuickTime Player",
         logo: "./public/assets/icons/q.png",
         active: "off",
-        position: "left"
+        position: "left",
+        index: 7
     },    
     {
         name: "System Preferences",
         logo: "./public/assets/icons/setting.png",
         active: "off",
-        position: "left"
+        position: "left",
+        index: 8
     },
     {
         name: "Trash",
         logo: "./public/assets/icons/trashcan_empty.png",
         link: "https://github.com/Josephkim0703",
         active: "off",
-        position: "right"
+        position: "right",
+        index: 9
     }
 ];
 
@@ -142,7 +152,7 @@ const about = [
     },
     {
         name : "About Me",
-        index : 2,
+        index : 1,
         info: `<div style="font-family: 'Arial', sans-serif; line-height: 1.2; color: #333; padding: 5px;">
 
   <h1 style="text-align: center; color: #4A90E2;">👋 About Me</h1>
@@ -175,12 +185,12 @@ const about = [
     },
     {
         name : "Resume",
-        index : 3,
+        index : 2,
         info:   "./public/assets/Documents/Resume.docx"
     },
     {
         name : "Contact",
-        index : 4,
+        index : 3,
         info: "Email: josephkim0703@gmail.com \nPhone Number: 236-513-3280" ,
     },
 ]

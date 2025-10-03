@@ -1,7 +1,7 @@
 import {useState, useEffect, useRef} from 'react';
 import { TaskBarApps } from '../util/data.js';
 
-function Taskbar(){
+function Taskbar(props){
 
     const [opacity, setOpacity] = useState(Array(10).fill(0));
     const [hide, setHide] = useState(Array(10).fill(false));
@@ -25,23 +25,32 @@ function Taskbar(){
         });
     }
  
-    //handle taskbar ui and function
+    //handle taskbar ui and function and animation
     async function handleClick(i) { 
+            handleApp(i)
             app[i].active = "yes";
-
             if (imgRef.current[i]) {
                 imgRef.current[i].classList.add('active');
                 setTimeout(() => { 
-                    imgRef.current[i]?.classList.remove('active'); 
+                    imgRef.current[i].classList.remove('active'); 
                 }, 1000);
             }
-            
+           
+
             await delay(500);
            
             updateOpacity(i, 1)
-            updateHide(i, false)       
+            updateHide(i, false)  
+            
+         if(app[i].position == "right"){
+                props.setTab((prev) => {
+        return prev.map((element, i) => i == props.index? element : null)
+     })
+         }
+            
     };
 
+    //delay for animation opacity
     function delay(ms){
         return new Promise(resolve => setTimeout(resolve, ms))
     }
@@ -53,6 +62,78 @@ function Taskbar(){
     function hoverOff(i){
         updateHide(i, false)
     }
+
+    //switch statement to track which app on taskbar was clicked and functionality
+    function handleApp(index){
+             let i, id, x;
+        switch(index){
+            case 0:
+                i = index;
+                id = "finder";
+                x = 0;
+                props.setPopup("file")
+                    props.setTab((prev) => [
+                      ...prev,
+                      {
+                          name: app[index].name,
+                          index: app[index].index
+                      } 
+              ]);
+                break;
+            case 1:
+                i = index;
+                id = "dashboard";
+                x = 1;
+                break;
+            case 2:
+                i = index;
+                id = "photo";
+                x = 2;
+                break;
+            case 3:
+                i = index;
+                id = "contact";
+                x = 3;
+                break;
+            case 4:
+                i = index;
+                id = "photobooth";
+                x = 4;
+                break;
+            case 5:
+                i = index;
+                id = "itunes";
+                x = 5;
+                break;
+            case 6:
+                i = index;
+                id = "calendar";
+                x = 6;
+                break;
+            case 7:
+                i = index;
+                id = "quicktime";
+                x = 7;
+                break;
+            case 8:
+                i = index;
+                id = "settings";
+                x = 8;
+                break;
+            default: 
+                i = index;
+        }
+        
+         props.setActive((prev) =>{
+            const newArr = [...prev];
+            newArr[x] = i;
+            return newArr;
+         }) 
+    }
+
+
+    //function to handle minimize function grabs index of left taskbar and opens the corresponding txtfile
+
 
     return(
         <footer>
