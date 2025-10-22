@@ -213,16 +213,16 @@ function Popup(props) {
               <div id="tab_main">
                 <div id="tab_left">
                   <button type="button"><img src="../public/assets/icons/network.png" alt="" />Network</button>
-                  <button type="button"><img src="" alt="" />Joseph HD</button>
-                  <button type="button"><img src="" alt="" />Secret HD</button>
+                  <button type="button"><img src="../public/assets/icons/hardrive.webp" alt="" />Joseph HD</button>
+                  <button type="button"><img src="../public/assets/icons/hardrive.webp" alt="" />Secret HD</button>
                   <hr />
-                  <button type="button"><img src="" alt="" />Desktop</button>
-                  <button type="button"><img src="" alt="" />Wiki</button>
-                  <button type="button"><img src="" alt="" />Applications</button>
-                  <button type="button"><img src="" alt="" />Documents</button>
-                  <button type="button"><img src="" alt="" />Movies</button>
-                  <button type="button"><img src="" alt="" />Music</button>
-                  <button type="button"><img src="" alt="" />Pictures</button>
+                  <button type="button"><img src="../public/assets/icons/desktop.png" alt="" />Desktop</button>
+                  <button type="button"><img src="../public/assets/icons/house.png" alt="" />Wiki</button>
+                  <button type="button"><img src="../public/assets/icons/app.png" alt="" />Applications</button>
+                  <button type="button"><img src="../public/assets/icons/doc.png" alt="" />Documents</button>
+                  <button type="button"><img src="../public/assets/icons/movie.png" alt="" />Movies</button>
+                  <button type="button"><img src="../public/assets/icons/musicNote.png" alt="" />Music</button>
+                  <button type="button"><img src="../public/assets/icons/picture.png" alt="" />Pictures</button>
                 </div>
                 <div id="tab_right"></div>
               </div>

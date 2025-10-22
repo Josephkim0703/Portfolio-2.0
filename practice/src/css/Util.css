@@ -540,7 +540,11 @@ footer{
   border: none;
   font-family: sf;
   font-size: 15px;
-  text-align: left;
+  display: flex;
+  align-items: center;        
+  justify-content: flex-start; 
+  gap: 3px;                  
+  padding-left: 5px; 
 }
 
 #tab_left button:hover{
@@ -549,9 +553,9 @@ footer{
 }
 
 #tab_left img{
-  width: 1.7rem;
+  width: 2rem;
   height: auto;
-
+  margin: 1px;
 }
 
 #tab_left hr{
