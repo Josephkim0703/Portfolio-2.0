@@ -86,6 +86,8 @@ function StartPage() {
             t !== null ? (
               <Popup
                 key={i}
+                width= {t.width}
+                height= {t.height}
                 tabName={t.name}
                 setTab={setTab}
                 index={i}

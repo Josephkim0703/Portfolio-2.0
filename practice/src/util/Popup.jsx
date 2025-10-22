@@ -74,55 +74,36 @@ function Popup(props) {
 
   //handles maximize button when clicked increases or decreases size of notepad
   function maximize() {
+    const note = noteRef.current[props.index];
+    note.classList.toggle("tab-maximized");
+   
     if (!active) {
-      noteRef.current[props.index].style.width = "100vw";
-      noteRef.current[props.index].style.height = "100vh";
-      noteRef.current[props.index].style.left = 0;
-      noteRef.current[props.index].style.top = 0;
-      noteRef.current[props.index].style.borderRadius = 0;
+      note.style.width = "100vw";
+      note.style.height = "100vh";
+      note.style.left = 0;
+      note.style.top = 0;
+      note.style.borderRadius = 0;
       props.main.current.style.zIndex = 5;
       setActive(true);
     } else {
       props.main.current.style.zIndex = 1;
-      noteRef.current[props.index].style.left = prevLeft;
-      noteRef.current[props.index].style.top = prevTop;
-      noteRef.current[props.index].style.borderRadius = "10px 10px 0px 0px";
-      switch (props.tabName) {
-        case "How to Navigate":
-          noteRef.current[props.index].style.width = "40rem";
-          noteRef.current[props.index].style.height = "30rem";
-          break;
-        case "About Me":
-          noteRef.current[props.index].style.width = "40rem";
-          noteRef.current[props.index].style.height = "35rem";
-          break;
-        case "Resume":
-          break;
-        case "Contact":
-          break;
-        default:
-      }
+      note.style.left = prevLeft;
+      note.style.top = prevTop;
+      if(props.popupSetting == "textfile") note.style.borderRadius = "10px 10px 0px 0px";
+      else note.style.borderRadius = "10px";  
+      note.style.width = props.width;
+      note.style.height = props.height;
+   
       setActive(false);
     }
   }
 
   //sets size of tab depending on what was clicked
   useEffect(() => {
-    switch (props.tabName) {
-      case "How to Navigate":
-        noteRef.current[props.index].style.width = "40rem";
-        noteRef.current[props.index].style.height = "30rem";
-        break;
-      case "About Me":
-        noteRef.current[props.index].style.width = "40rem";
-        noteRef.current[props.index].style.height = "35rem";
-        break;
-      case "Resume":
-        break;
-      case "Contact":
-        break;
-      default:
-    }
+    const note = noteRef.current[props.index];
+    if (!note.style.width) note.style.width = props.width;
+    if (!note.style.height) note.style.height = props.height;
+
   }, []);
 
   function handleCurrentTab() {
@@ -213,26 +194,39 @@ function Popup(props) {
                 <h1>{props.tabName}</h1>
               </div>
               <div id="tab_nav">
-                  <div>
-                  <button>&#10148;</button>
-                  <button>&#10148;</button>
-                  </div>
+                <div>
+                  <button type="button">&#10148;</button>
+                  <button type="button">&#10148;</button>
+                </div>
 
-                  <div>
-                  <button><i class="fa-solid fa-bars"></i></button>
-                  <button><i class="fa-solid fa-bars"></i></button>
-                  <button><i class="fa-solid fa-bars"></i></button>
-                  </div>      
+                <div>
+                  <button type="button"><i class="fa-solid fa-bars"></i></button>
+                  <button type="button"><i class="fa-solid fa-bars"></i></button>
+                  <button type="button"><i class="fa-solid fa-bars"></i></button>
+                </div>
 
-                  <div>
-                  <button><i class="fa-solid fa-gear"></i></button>
-                  </div>
-                  <input type="text" placeholder=""/>
+                <div>
+                  <button type="button"><i class="fa-solid fa-gear"></i></button>
+                </div>
+                <input type="text" placeholder="" />
               </div>
               <div id="tab_main">
-                <div id="tab_left"></div>
+                <div id="tab_left">
+                  <button type="button"><img src="../public/assets/icons/network.png" alt="" />Network</button>
+                  <button type="button"><img src="" alt="" />Joseph HD</button>
+                  <button type="button"><img src="" alt="" />Secret HD</button>
+                  <hr />
+                  <button type="button"><img src="" alt="" />Desktop</button>
+                  <button type="button"><img src="" alt="" />Wiki</button>
+                  <button type="button"><img src="" alt="" />Applications</button>
+                  <button type="button"><img src="" alt="" />Documents</button>
+                  <button type="button"><img src="" alt="" />Movies</button>
+                  <button type="button"><img src="" alt="" />Music</button>
+                  <button type="button"><img src="" alt="" />Pictures</button>
+                </div>
                 <div id="tab_right"></div>
               </div>
+              <p></p>
             </div>
           </>
         )}
@@ -242,3 +236,10 @@ function Popup(props) {
 }
 
 export default Popup;
+
+//maximize dynamic code
+//find images
+//minimize function to work when reopening tab
+// applikcation on desktop
+//other apps to work
+//make finders work properly

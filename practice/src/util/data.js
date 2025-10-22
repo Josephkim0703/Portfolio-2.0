@@ -1,139 +1,143 @@
 //contains apps on the task bar
 const TaskBarApps = [
-     {
-        name: "Finder",
-        logo: "./public/assets/icons/finder.png",
-        active: "off",
-        position: "left",
-        index: 0
-    },
-    {
-        name: "Dashboard",
-        logo: "./public/assets/icons/dashboard.png",
-        active: "off",
-        position: "left",
-        index: 1
-    },
-    {
-        name: "Mail",
-        logo: "./public/assets/icons/email.png",
-        active: "off",
-        position: "left",
-        index: 2
-    },
-    {
-        name: "Contact",
-        logo: "./public/assets/icons/contact.png",
-        active: "off",
-        position: "left",
-        index: 3
-    },
-    {
-        name: "Photo booth",
-        logo: "./public/assets/icons/photobooth.png",
-        active: "off",
-        position: "left",
-        index: 4
-    },
-    {
-        name: "iTunes",
-        logo: "./public/assets/icons/music.png",
-        active: "off",
-        position: "left",
-        index: 5
-    },
-    {
-        name: "Calendar",
-        logo: "./public/assets/icons/calender.png",
-        active: "off",
-        position: "left",
-        index: 6
-    }, 
-    {
-        name: "QuickTime Player",
-        logo: "./public/assets/icons/q.png",
-        active: "off",
-        position: "left",
-        index: 7
-    },    
-    {
-        name: "System Preferences",
-        logo: "./public/assets/icons/setting.png",
-        active: "off",
-        position: "left",
-        index: 8
-    },
-    {
-        name: "Trash",
-        logo: "./public/assets/icons/trashcan_empty.png",
-        link: "https://github.com/Josephkim0703",
-        active: "off",
-        position: "right",
-        index: 9
-    }
+  {
+    name: "Finder",
+    logo: "./public/assets/icons/finder.png",
+    active: "off",
+    position: "left",
+    width: "730px",
+    height: "500px",
+    index: 0,
+  },
+  {
+    name: "Dashboard",
+    logo: "./public/assets/icons/dashboard.png",
+    active: "off",
+    position: "left",
+    index: 1,
+  },
+  {
+    name: "Mail",
+    logo: "./public/assets/icons/email.png",
+    active: "off",
+    position: "left",
+    index: 2,
+  },
+  {
+    name: "Contact",
+    logo: "./public/assets/icons/contact.png",
+    active: "off",
+    position: "left",
+    index: 3,
+  },
+  {
+    name: "Photo booth",
+    logo: "./public/assets/icons/photobooth.png",
+    active: "off",
+    position: "left",
+    index: 4,
+  },
+  {
+    name: "iTunes",
+    logo: "./public/assets/icons/music.png",
+    active: "off",
+    position: "left",
+    index: 5,
+  },
+  {
+    name: "Calendar",
+    logo: "./public/assets/icons/calender.png",
+    active: "off",
+    position: "left",
+    index: 6,
+  },
+  {
+    name: "QuickTime Player",
+    logo: "./public/assets/icons/q.png",
+    active: "off",
+    position: "left",
+    index: 7,
+  },
+  {
+    name: "System Preferences",
+    logo: "./public/assets/icons/setting.png",
+    active: "off",
+    position: "left",
+    index: 8,
+  },
+  {
+    name: "Trash",
+    logo: "./public/assets/icons/trashcan_empty.png",
+    link: "https://github.com/Josephkim0703",
+    active: "off",
+    position: "right",
+    index: 9,
+  },
 ];
 
 //socials media links
 const main = [
-    {
-        name : "Instagram",
-        link : "https://www.instagram.com/josephkim_/"
-    },
-    {
-        name : "Github",
-        link : "https://github.com/Josephkim0703"
-    },
-    {
-        name : "Linkdin",
-        link : "https://www.linkedin.com/in/josephkim0703/"
-    },
-    {
-        name : "MyAnimeList",
-        link : "https://myanimelist.net/animelist/Senpai_EFS"
-    }
-]
+  {
+    name: "Instagram",
+    link: "https://www.instagram.com/josephkim_/",
+  },
+  {
+    name: "Github",
+    link: "https://github.com/Josephkim0703",
+  },
+  {
+    name: "Linkdin",
+    link: "https://www.linkedin.com/in/josephkim0703/",
+  },
+  {
+    name: "MyAnimeList",
+    link: "https://myanimelist.net/animelist/Senpai_EFS",
+  },
+];
 
 //photos videos, etc
 const file = [
-    {
-        name : "Photos",
-    },
-    {
-        name : "Documents",
-    },
-    {
-        name : "Videos",
-    },
-]
+  {
+    name: "Photos",
+  },
+  {
+    name: "Documents",
+  },
+  {
+    name: "Videos",
+  },
+];
 
 const edit = [
-    {
-        name : "Dark mode",
-    },
-]
+  {
+    name: "Dark mode",
+  },
+];
 
 //contains my projects
 const project = [
-    {
-        name : "One piece Encyclopedia",
-        link: "https://josephkim0703.github.io/devil-fruit-encyclopedia/"
-    },   
-    {
-        name : "Domain Expansion Encyclopedia",
-        link: "https://josephkim0703.github.io/Domain-Expansion/"
-    },
-    {
-        name : "Fantasy Game",
-        link: ""
-    },
-]
+  {
+    name: "One piece Encyclopedia",
+    link: "https://josephkim0703.github.io/devil-fruit-encyclopedia/",
+  },
+  {
+    name: "Domain Expansion Encyclopedia",
+    link: "https://josephkim0703.github.io/Domain-Expansion/",
+  },
+  {
+    name: "Fantasy Game",
+    link: "",
+  },
+];
 
 //has all my info
 const about = [
-    {
-        name : "How to Navigate",
-        index : 0,
-        info: `<div style="font-family: 'Arial', sans-serif; line-height: 1.2; color: #333; text-align: center; padding: 5px">
+  {
+    width: "40rem",
+    height: "30rem",
+    name: "How to Navigate",
+    index: 0,
+    info: `<div style="font-family: 'Arial', sans-serif; line-height: 1.2; color: #333; text-align: center; padding: 5px">
           <h1 style="color: #4A90E2; margin: 5px;">🚀 Welcome to Joseph's Portfolio!</h1>
           <p style="text-align: left;">
             This website is designed to be more than just a collection of my projects, it's an <b>experience</b>.<br /><br />
@@ -148,12 +152,14 @@ const about = [
           </ul>
         
         </div>
-        `
-    },
-    {
-        name : "About Me",
-        index : 1,
-        info: `<div style="font-family: 'Arial', sans-serif; line-height: 1.2; color: #333; padding: 5px;">
+        `,
+  },
+  {
+    width: "40rem",
+    height: "35rem",
+    name: "About Me",
+    index: 1,
+    info: `<div style="font-family: 'Arial', sans-serif; line-height: 1.2; color: #333; padding: 5px;">
 
   <h1 style="text-align: center; color: #4A90E2;">👋 About Me</h1>
 
@@ -181,72 +187,70 @@ const about = [
     <li>🌎 I have watched over 300+ animes.</li>
   </ul>
 </center>
-</div>`
-    },
-    {
-        name : "Resume",
-        index : 2,
-        info:   "./public/assets/Documents/Resume.docx"
-    },
-    {
-        name : "Contact",
-        index : 3,
-        info: "Email: josephkim0703@gmail.com \nPhone Number: 236-513-3280" ,
-    },
-]
+</div>`,
+  },
+  {
+    name: "Resume",
+    index: 2,
+    info: "./public/assets/Documents/Resume.docx",
+  },
+  {
+    name: "Contact",
+    index: 3,
+    info: "Email: josephkim0703@gmail.com \nPhone Number: 236-513-3280",
+  },
+];
 
 //change wallpapers
 const wallpaper = [
-    {  
-        name : "Default",
-        img : "./public/assets/wallpaper/default.png"
-    },
-    {   
-        name : "Windows XP",
-        img : "./public/assets/wallpaper/windows.jpg"
-    },
-    {
-        name : "Aesthetic Chrome Skull",
-        img : "./public/assets/wallpaper/skull.jpg"
-    },
-    {   
-        name : "One piece Wano Edition",
-        img : "./public/assets/wallpaper/WanoOP.jpg"
-    },
-    {   
-        name : "One piece Nami Edition",
-        img : "./public/assets/wallpaper/nami.jpg"
-    },
-    {   
-        name : "Neon Genesis Evangelion",
-        img : "./public/assets/wallpaper/neon.jpg"
-    },
-    {   
-        name : "Neon Genesis Evangelion Windows XP Edition",
-        img : "./public/assets/wallpaper/windowsneon.jpg"
-    },
-    {   
-        name : "Pokemon Psyduck-at-the-Store",
-        img : "./public/assets/wallpaper/psyduck.jpg"
-    },
-    {   
-        name : "Subaru Impreza WRX STI",
-        img : "./public/assets/wallpaper/subaru.png"
-    },
-   
+  {
+    name: "Default",
+    img: "./public/assets/wallpaper/default.png",
+  },
+  {
+    name: "Windows XP",
+    img: "./public/assets/wallpaper/windows.jpg",
+  },
+  {
+    name: "Aesthetic Chrome Skull",
+    img: "./public/assets/wallpaper/skull.jpg",
+  },
+  {
+    name: "One piece Wano Edition",
+    img: "./public/assets/wallpaper/WanoOP.jpg",
+  },
+  {
+    name: "One piece Nami Edition",
+    img: "./public/assets/wallpaper/nami.jpg",
+  },
+  {
+    name: "Neon Genesis Evangelion",
+    img: "./public/assets/wallpaper/neon.jpg",
+  },
+  {
+    name: "Neon Genesis Evangelion Windows XP Edition",
+    img: "./public/assets/wallpaper/windowsneon.jpg",
+  },
+  {
+    name: "Pokemon Psyduck-at-the-Store",
+    img: "./public/assets/wallpaper/psyduck.jpg",
+  },
+  {
+    name: "Subaru Impreza WRX STI",
+    img: "./public/assets/wallpaper/subaru.png",
+  },
 ];
 
 const help = [
-    {
-        name : "Tutorial",
-    },
-    {
-        name : "Search",
-    },
+  {
+    name: "Tutorial",
+  },
+  {
+    name: "Search",
+  },
 ];
 
-export{TaskBarApps, wallpaper, help, about, project, edit, file, main}
-
+export { TaskBarApps, wallpaper, help, about, project, edit, file, main };
 
 //myanimelist top 10 anime and link to myanimelist
 //my 100 things to before i die list

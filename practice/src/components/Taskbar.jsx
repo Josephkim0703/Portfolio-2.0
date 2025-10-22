@@ -72,12 +72,15 @@ function Taskbar(props){
                 id = "finder";
                 x = 0;
                 props.setPopup("file")
-                    props.setTab((prev) => [
+                     props.setTab((prev) => [
                       ...prev,
                       {
                           name: app[index].name,
-                          index: app[index].index
-                      } 
+                          info: app[index].active,
+                          index: app[index].index,
+                          width: app[index].width,
+                          height: app[index].height
+                      }  
               ]);
                 break;
             case 1:

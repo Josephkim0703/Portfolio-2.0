@@ -78,7 +78,9 @@ function OptionBox(props){
                       {
                           name: about[index].name,
                           info: about[index].info,
-                          index: about[index].index
+                          index: about[index].index,
+                          width: about[index].width,
+                          height: about[index].height
                       }  
               ]);
                 break;

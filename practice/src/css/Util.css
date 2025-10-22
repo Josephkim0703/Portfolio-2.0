@@ -290,7 +290,6 @@ footer{
   position: absolute;
   overflow: hidden;
   border-radius: 10px 10px 0px 0px ;
-  resize: both;
 }
 
 /*text file header*/
@@ -336,7 +335,7 @@ footer{
 }
 
 /*3 bottons for the close minimize and maximize*/
-#tab_textfile button, #tab_file button{
+#tab_textfile button, #tab_fileHeader button{
   border-radius: 50%;
   width: 1rem;
   height: 1rem;
@@ -351,7 +350,7 @@ footer{
               0 2px 4px rgba(0, 0, 0, 0.2);          
 }
 
-#tab_textfile button:hover{
+#tab_textfile button:hover, #tab_fileHeader button:hover{
     filter: brightness(85%);  
 }
 
@@ -387,7 +386,7 @@ footer{
 }
 
 /*Glare on top of the buttons*/
-#tab_textfile button::before,#tab_file button::before  {
+#tab_textfile button::before,#tab_fileHeader button::before  {
   content: '';
   position: absolute;
   top: 0px;
@@ -399,7 +398,7 @@ footer{
   filter: blur(1px);
 }
 /*Glare on bottom of the buttons*/
-#tab_textfile button::after #tab_file button::after{
+#tab_textfile button::after, #tab_fileHeader button::after{
   content: '';
   position: absolute;
   bottom: 0px;
@@ -435,7 +434,7 @@ footer{
   margin: 0;
   padding: 0px 5px;
   user-select: none;
-  min-width: 700px;
+  min-width: 730px;
   min-height: 500px;
   max-Width: 100vw;
   max-Height: 100vh;
@@ -450,6 +449,7 @@ footer{
   justify-content: space-between;
 
 }
+
 /*tab nav bar for file*/
 #tab_nav{
   margin: 3px 7px;
@@ -457,6 +457,8 @@ footer{
   flex-direction: row;
 }
 
+/*Finder navigation button
+*/
 #tab_nav button{
   width: 30px;
   height: 23px;
@@ -466,6 +468,11 @@ footer{
   box-shadow: inset 0 0.5px 2px black;
   color: grey;
   padding: 0;
+}
+
+#tab_nav button:hover{
+  color: rgb(99, 99, 99);
+  background-color: rgb(210, 210, 210);
 }
 
 /*These are for the border radius for all the buttons on the file nav bar*/
@@ -492,7 +499,6 @@ footer{
   border-radius: 5px;
  }
 
-
 #tab_nav input{
   border-radius: 100px;
   width: 15rem;
@@ -502,31 +508,73 @@ footer{
   margin-right: 10px;
 }
 
-
 /*tab main for file*/
-#tab_main{
+#tab_main {
   display: flex;
   flex-direction: row;
+  width: 100%;  
+  height: 100%; 
+  gap: 3px;
 }
 
-#tab_left{
-  background-color: white;
-  width: 10rem;
+#tab_left {
+  flex: 0 0 10rem; /* default width, but can grow/shrink if needed */
   height: 26rem;
-  margin: 3px 6px 3px 3px;
-  border-radius: 3px;
-  box-shadow: inset 0 0.5px 3px black;
-}
-
-#tab_right{
+  min-height: 0;
   background-color: white;
-  width: 34rem;
-  height: 26rem;
   margin: 3px;
   border-radius: 3px;
   box-shadow: inset 0 0.5px 3px black;
+  display: flex;
+  flex-direction: column;
+}
+
+#tab_left button{
+  width: 100%;
+  height: 3rem;
+  border-radius: 0;
+  margin: 0;
+  color: black;
+  background-color: transparent;
+  box-shadow: none;
+  border: none;
+  font-family: sf;
+  font-size: 15px;
+  text-align: left;
+}
+
+#tab_left button:hover{
+  background-image: linear-gradient(rgb(133, 196, 248), rgb(56, 133, 235), rgb(5, 53, 155));
+  color: white;
+}
+
+#tab_left img{
+  width: 1.7rem;
+  height: auto;
 
 }
+
+#tab_left hr{
+  width: 90%;
+  height: 1px;
+  border-radius: 5rem;
+  box-shadow: 0px 0.2px 1px black;
+}
+
+#tab_right {
+  background-color: white;
+  flex: 0 0 34rem;
+  height: 26rem;
+  margin: 3px 15px 3px 3px;
+  min-height: 0;
+  border-radius: 3px;
+  box-shadow: inset 0 0.5px 3px black;
+}
+
+
+
+.tab-maximized #tab_left { flex: 0 0 15%; height: 90%;}
+.tab-maximized #tab_right { flex: 1; height: 90%;}
 /*Text area for text file*/
 #tab_data{
   background-color: white;
@@ -545,4 +593,5 @@ footer{
   font-size: 1rem;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
+
 
