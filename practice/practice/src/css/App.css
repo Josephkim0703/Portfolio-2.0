@@ -1,0 +1,25 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color: rgba(0, 0, 0, 0.95);
+    overflow: hidden;
+}
+
+::-webkit-scrollbar {
+    width: 0;
+  }
+html{
+    cursor:grab;
+}
+
+h1{
+    color: white;
+}
+
+img, a {
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    user-select: none;
+  }
